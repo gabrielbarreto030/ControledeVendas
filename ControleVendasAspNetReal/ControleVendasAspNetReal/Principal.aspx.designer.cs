@@ -13,13 +13,13 @@ namespace ControleVendasAspNetReal {
     public partial class Principal {
         
         /// <summary>
-        /// Controle form1.
+        /// Controle form.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
         /// Controle Label1.
@@ -38,24 +38,6 @@ namespace ControleVendasAspNetReal {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox nomeCP;
-        
-        /// <summary>
-        /// Controle Table1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
-        
-        /// <summary>
-        /// Controle Table2.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table2;
         
         /// <summary>
         /// Controle Label2.
@@ -155,15 +137,6 @@ namespace ControleVendasAspNetReal {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button excluir_btn;
-        
-        /// <summary>
-        /// Controle Table3.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table3;
         
         /// <summary>
         /// Controle tabelavendas.

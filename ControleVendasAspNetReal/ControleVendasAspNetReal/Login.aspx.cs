@@ -19,6 +19,7 @@ namespace ControleVendasAspNetReal
         protected void Button1_Click(object sender, EventArgs e)
         {
             string senha;
+            string usuario;
             string senhadigitada = senhaCP.Text;
             OleDbConnection conn = new OleDbConnection();
             OleDbCommand cmd = new OleDbCommand();
@@ -41,7 +42,16 @@ namespace ControleVendasAspNetReal
                 if (senha==senhadigitada)
                 {
                     erroCP.Text = "Login Com Sucesso";
-                    Response.Redirect("Principal.aspx");
+                    usuario = dr["usuario"].ToString();
+                    if (usuario == "vendedor")
+                    {
+                        Response.Redirect("Principal.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("Financeiro.aspx");
+                    }
+                    
 
 
                 }

@@ -16,7 +16,7 @@ namespace ControleVendasAspNetReal
             readtable();
         }
 
-        private void readtable()
+        public void readtable()
         {
             
             
@@ -34,6 +34,11 @@ namespace ControleVendasAspNetReal
             clientes.Load(dr);
             GridView1.DataSource = clientes;
             GridView1.DataBind();
+           
+           
+            
+
+            //.Columns(3).DefaultCellStyle.Format = "C2";
             //string nome = "DEU CERTO!!";
             // tabelavendas.InnerHtml = $"<h1>{nome}</h1>";
         }
@@ -42,6 +47,18 @@ namespace ControleVendasAspNetReal
         {
             Inserirnobanco();
         }
+        protected void alterar_btn_Click(object sender, EventArgs e)
+        {
+            AlteraBanco();
+            readtable();
+
+        }
+        protected void pesquisar_btn_Click(object sender, EventArgs e)
+        {
+            ConsultaBanco();
+
+        }
+
 
         private void Inserirnobanco()
         {
@@ -50,9 +67,7 @@ namespace ControleVendasAspNetReal
             cmd.CommandText = "Select * from controle where nome ='" + nomeCP.Text + "'"; cmd.CommandType = System.Data.CommandType.Text;
             conn.Open();
             OleDbDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows) { erro2CP.Text = "Código já incluído"; conn.Close(); }
-            else
-            {
+            
                 conn.Close();
                 conn.Open();
                 cmd.CommandText = "insert into controle (nome,quantidade,valor) values ('" + nomeCP.Text + "', " + quantCP.Text + "," + valorCP.Text + ")";
@@ -62,17 +77,11 @@ namespace ControleVendasAspNetReal
                 conn.Close();
                 conn.Dispose();
                 readtable();
-            }
+           
             
         }
 
-        protected void alterar_btn_Click(object sender, EventArgs e)
-        {
-            AlteraBanco();
-            readtable();
-
-        }
-
+        
         private void AlteraBanco()
         {
             OleDbConnection conn = new OleDbConnection(); OleDbCommand cmd = new OleDbCommand();
@@ -97,14 +106,11 @@ namespace ControleVendasAspNetReal
             conn.Open(); cmd.ExecuteNonQuery(); conn.Close(); conn.Dispose();
         }
 
-        protected void pesquisar_btn_Click(object sender, EventArgs e)
-        {
-            ConsultaBanco();
-
-        }
+        
 
         private void ConsultaBanco()
         {
+            
             OleDbConnection conn = new OleDbConnection(); OleDbCommand cmd = new OleDbCommand();
             OleDbDataReader dr;
             conn.ConnectionString = "Provider=Microsoft.Jet.OleDb.4.0;Data Source=C:\\BancoAspNet\\ControleVendas.mdb"; cmd.Connection = conn;
@@ -117,6 +123,7 @@ namespace ControleVendasAspNetReal
                 nomeCP.Text = dr["nome"].ToString();
                 quantCP.Text = dr["quantidade"].ToString();
                 valorCP.Text = dr["valor"].ToString();
+                
             }
             else
             {
